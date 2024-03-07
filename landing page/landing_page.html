@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone - Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Vivo 29e Smartphone</h1>
+    </header>
+
+    <section>
+        <div class="image-slider">
+            <img src="img1.jpg" alt="Vivo 29e Image 1">
+            <img src="img2.jpg" alt="Vivo 29e Image 2">
+            <img src="img3.jpg" alt="Vivo 29e Image 3">
+        </div>
+        <div class="product-info">
+            <h2>About the Vivo 29e Smartphone</h2>
+            <p>Experience the power and elegance of the Vivo 29e smartphone. Packed with advanced features, it's designed to
+                elevate your mobile experience.</p>
+
+            <h2>Key Features</h2>
+            <ul>
+                <li>5G Connectivity for ultra-fast internet speeds</li>
+                <li>High-resolution 6.2-inch AMOLED Display</li>
+                <li>Dual-Camera System with 16MP main camera</li>
+                <li>Long-lasting 4000mAh Battery</li>
+                <li>Secure Face Recognition and Fingerprint Sensor</li>
+                <li>Expandable Storage up to 256GB</li>
+                <li>Latest Android OS</li>
+            </ul>
+
+            <h2>Price</h2>
+            <p id="price"></p>
+
+            <button onclick="placeOrder()">Place Order</button>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Kruthika. All rights reserved.
+    </footer>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.image-slider img');
+
+        function showNextImage() {
+            images[currentImageIndex].style.display = 'none';
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].style.display = 'block';
+        }
+
+        function startImageSlider() {
+            setInterval(showNextImage, 5000); 
+        }
+
+        function placeOrder() {
+            alert("Order placed successfully!");
+        }
+
+        const priceElement = document.getElementById('price');
+        const priceInINR = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(29999.99);
+        priceElement.textContent = priceInINR;
+
+        window.onload = startImageSlider;
+    </script>
+
+</body>
+
+</html>
